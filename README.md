@@ -1,4 +1,4 @@
-# ChinaOpen
+# Preparing ChinaOpen
 
 ## Introduction
 
