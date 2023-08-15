@@ -1,8 +1,8 @@
 # ChinaOpen
-A DATASET FOR OPEN-WORLD MULTIMODAL LEARNING
 
 ## Introduction
-
+ A Dataset for Open-world Multimodal Learning
+ 
 <!-- [DATASET] -->
 
 ```BibTeX
