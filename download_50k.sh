@@ -1,45 +1,48 @@
 #!/bin/bash
 
-# Set the name of the file to store download failures
-failure_file="DownloadFailure.txt"
+input_file="ChinaOpen-50K-url.txt"  # Input text file containing video id and download links, separated by tabs
+output_directory="$1"  # Output directory for downloaded videos, obtained from script argument
 
-# Check if the destination path is provided as an argument
-if [ -z "$1" ]; then
-    echo "Usage: $0 <destination_path>"
-    exit 1
+download_failure_file="DownloadFailure.txt"  # File to record failed downloads
+
+# Check if the output directory exists, create it if not
+if [ ! -d "$output_directory" ]; then
+    mkdir -p "$output_directory"
 fi
 
-# Store the destination path from the command-line argument
-destination_path="$1"
+# Initialize counters
+total_links=0
+successful_downloads=0
+failed_downloads=0
 
+# Read each line from the input file
+while IFS=$'\t' read -r video_id download_link; do
+    ((total_links++))
 
-# Read each line from the txt file, with format "video_id download_link"
-while IFS=' ' read -r video_id download_link; do
-    echo "Downloading video ${video_id}..."
-    
-    # Use wget to download the video with progress bar
-    wget --show-progress --output-document="${video_id}.mp4" "${download_link}"
-    
+    # Use you-get to download the video
+    you-get -o "$output_directory" --output-filename "${video_id}" "$download_link"
+
     # Check if the download was successful
-    if [ $? -ne 0 ]; then
-        echo "Failed to download video ${video_id}"
-        echo "${video_id} ${download_link}" >> "${failure_file}"
+    if [ $? -eq 0 ]; then
+        ((successful_downloads++))
+        
+        # Delete simultaneously downloaded .xml file
+        find $output_directory -name "*.xml" -type f -delete
+        
+        # # Convert the downloaded video file to MP4 format using ffmpeg
+        # ffmpeg -i "${output_directory}/${video_id}.flv" -c:v libx264 -c:a aac -strict experimental "${output_directory}/${video_id}.mp4"
+
+      
     else
-        echo "Video ${video_id} downloaded successfully"
+        ((failed_downloads++))
+        echo "$video_id	$download_link" >> "$download_failure_file"
     fi
-done < ChinaOpen-50K-url.txt
 
-# Count download information
-total_links=$(wc -l < ChinaOpen-50K-url.txt)
-successful_downloads=$(ls -1 *.mp4 | wc -l)
-failed_downloads=$(wc -l < "${failure_file}")
+done < "$input_file"
 
-echo "Total ${total_links} download links"
-echo "Successfully downloaded ${successful_downloads} videos"
-echo "Failed to download ${failed_downloads} videos"
+# Print statistics
+echo "Total links: $total_links"
+echo "Successful downloads: $successful_downloads"
+echo "Failed downloads: $failed_downloads"
 
-# Move downloaded videos to the specified destination path
-destination_path="/your/destination/path"
-mv *.mp4 "${destination_path}"
-
-echo "Download completed"
+echo "Downloaded videos are saved in: $output_directory"
