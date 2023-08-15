@@ -13,5 +13,11 @@ A DATASET FOR OPEN-WORLD MULTIMODAL LEARNING
   year={2023},
 }
 ```
+For detailed dataset information, please visit the dataset's official [website](https://ruc-aimc-lab.github.io/ChinaOpen/).  
 
+
+## Step 1. Download the ChinaOpen-50k
+```shell
+bash download_ChinaOpen-50k.sh
+```
 
