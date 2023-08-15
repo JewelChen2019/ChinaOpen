@@ -16,7 +16,7 @@
 For detailed dataset information, please visit the dataset's official [website](https://ruc-aimc-lab.github.io/ChinaOpen/).  
 
 ## Requirement
-- Python  
+- Python3  
 - you-get  
   macOS:  
   ```shell
