@@ -16,10 +16,16 @@ A DATASET FOR OPEN-WORLD MULTIMODAL LEARNING
 For detailed dataset information, please visit the dataset's official [website](https://ruc-aimc-lab.github.io/ChinaOpen/).  
 
 ## Requirement
-- Python
+- Python  
 - you-get
-   macOS: brew install you-get
-   Linux: pip install you-get
+   macOS:  
+  ```shell
+    brew install you-get
+  ```
+   Linux:  
+  ```shell
+  pip install you-get
+  ```
 
 ##  Download the ChinaOpen-50k
 
