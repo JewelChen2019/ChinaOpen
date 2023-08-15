@@ -17,12 +17,12 @@ For detailed dataset information, please visit the dataset's official [website](
 
 ## Requirement
 - Python  
-- you-get
-   macOS:  
+- you-get  
+  macOS:  
   ```shell
-    brew install you-get
+  brew install you-get
   ```
-   Linux:  
+  Linux:  
   ```shell
   pip install you-get
   ```
