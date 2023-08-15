@@ -1,18 +1,6 @@
 # Preparing ChinaOpen
 
-## Introduction
 
- 
-<!-- [DATASET] -->
-
-```BibTeX
-@inproceedings{Chen2023chinaopen,
-  title={ChinaOpen: A Dataset for Open-world Multimodal Learning},
-  author={Aozhu Chen, Ziyuan Wang, Chengbo Dong, Kaibin Tian, Ruixiang Zhao, Xun Liang, Zhanhui Kang, Xirong Li},
-  journal={ACMMM},
-  year={2023},
-}
-```
 For detailed dataset information, please visit the dataset's official [website](https://ruc-aimc-lab.github.io/ChinaOpen/).  
 
 ## Requirement
@@ -67,4 +55,17 @@ ChianOpen-1K-annotations.json
 │   │   ├── Scene:['skateboard slope', 'curve']
 │   │   ├── User-tag:[ 'bending', 'riding']
 ├── ...
+```
+
+## Citation
+
+<!-- [DATASET] -->
+
+```BibTeX
+@inproceedings{Chen2023chinaopen,
+  title={ChinaOpen: A Dataset for Open-world Multimodal Learning},
+  author={Aozhu Chen, Ziyuan Wang, Chengbo Dong, Kaibin Tian, Ruixiang Zhao, Xun Liang, Zhanhui Kang, Xirong Li},
+  journal={ACMMM},
+  year={2023},
+}
 ```
