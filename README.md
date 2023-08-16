@@ -20,6 +20,7 @@ For detailed dataset information, please visit the dataset's official [website](
 ```shell
 bash download_ChinaOpen-50k.sh /your/save/path
 ```
+We encourage ChinaOpen users to download videos using the provided video URLs. For URLs that are no longer available, please email the list of corresponding video IDs to Aozhu Chen (caz@ruc.edu.cn) to get a copy of the raw video files.
 ### Annotations
 ```
 ChinaOpen-50K-annotations.json
